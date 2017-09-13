@@ -5,7 +5,6 @@ import './index.css';
 import 'bootstrap/dist/css/bootstrap.css';
 //import App from './App';
 import App from './App';
-import StorePicker from './components/StorePicker';
 import registerServiceWorker from './registerServiceWorker';
 
 

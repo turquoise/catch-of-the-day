@@ -16,6 +16,7 @@
     "body-parser": "^1.18.1",
     "bootstrap": "^4.0.0-alpha.6",
     "history": "^4.7.2",
+    "prop-types": "^15.5.10",
     "re-base": "^3.0.3",
     "react": "^15.6.1",
     "react-addons-css-transition-group": "^15.6.0",

@@ -5,13 +5,13 @@
   margin: 50px auto;
   padding: 2rem;
   border: 2px solid #000;
+  text-align: center;
 }
 .store-selector input,
 .store-selector button {
   width: 100%;
 }
-.store-selector input[type="text"],
-.store-selector button[type="text"] {
+
+input {
   text-align: center;
-  font-size: 3rem;
 }
