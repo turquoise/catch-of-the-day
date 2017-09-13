@@ -6,13 +6,31 @@ import './Store.css';
 import Header from './Header';
 import Order from './Order';
 import Inventory from './Inventory';
-import Hello from './Hello';
 
 class Store extends Component {
+  constructor() {
+    super();
+    this.addFish = this.addFish.bind(this);
+    // initial state
+    this.state = {
+      fishes: {},
+      order: {}
+    };
+  }
+
+  addFish(fish) {
+    // update state
+    const fishes = { ...this.state.fishes};
+    // add in our new fish
+    const timestamp = Date.now();
+    fishes[`fish-${timestamp}`] = fish;
+    // set state
+    this.setState({ fishes: fishes})
+  }
+
   render() {
     return (
       <div className="catch-of-the-day">
-        <Hello />
         <Container>
           <Row>
             <Col sm="4" className="header">
@@ -22,7 +40,7 @@ class Store extends Component {
               <Order />
             </Col>
             <Col sm="4" className="inventory">
-              <Inventory />
+              <Inventory addFish={this.addFish} />
             </Col>
           </Row>
         </Container>

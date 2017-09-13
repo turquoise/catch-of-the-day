@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom';
+// import {
+//   BrowserRouter as Router,
+//   Route,
+//   Link,
+//   Redirect,
+//   withRouter
+// } from 'react-router-dom'
 import { getFunName } from '../helpers';
 import './StorePicker.css';
 import { PropTypes } from 'prop-types';
 import { Button } from 'reactstrap';
-import Store from './Store';
+//import Store from './Store';
 
 class StorePicker extends Component {
+  
 
   goToStore(event) {
     event.preventDefault();
@@ -15,13 +22,14 @@ class StorePicker extends Component {
     const userName = this.storeInput.value;
     const path = `/store/${userName}`;
     console.log('path ', path);
-    this.context.router.history.push(path);
 
+    this.context.router.history.push(path);
   }
   render() {
     // this is a comment anywhere else.
     return (
       <div>
+
         { /* this is a commment in react jsx */ }
         <form className="store-selector" onSubmit={ (e) => this.goToStore(e)} >
           <h4>Please enter a store</h4>
@@ -34,7 +42,7 @@ class StorePicker extends Component {
               Visit Store
             </Button>
         </form>
-        
+
       </div>
     );
   }
