@@ -1,0 +1,22 @@
+
+
+.header {
+  margin-top: 20px;
+  background-color: white;
+  height: 600px;
+  border: 1px solid black;
+}
+
+.order {
+  margin-top: 20px;
+  background-color: white;
+  height: 600px;
+  border: 1px solid black;
+}
+
+.inventory {
+  margin-top: 20px;
+  background-color: white;
+  height: 600px;
+  border: 1px solid black;
+}
