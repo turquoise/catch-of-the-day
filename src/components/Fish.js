@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, ListGroup, ListGroupItem, Badge, Row, Col } from 'reactstrap';
+import { Button, ListGroup, ListGroupItem, Badge, Row, Col, Container } from 'reactstrap';
 import { formatPrice } from '../helpers';
 import './Fish.css';
 
@@ -11,23 +11,25 @@ class Fish extends Component {
     return (
       <ListGroup>
         <ListGroupItem className="justify-content-between">
-          <Row>
-            <Col xs="2">
-              <img src={details.image} alt={details.name} />
-            </Col>
-            <Col xs="10">
-              <h6 className="fish-name">{ details.name } -
+          <Container>
+            <Row>
+              <Col xs="2">
+                <img src={details.image} alt={details.name} />
+              </Col>
+              <Col xs="8">
+                <h6 className="fish-name">{ details.name}</h6>
+              </Col>
+              <Col xs="2">
                 <span className="price"> { formatPrice(details.price) }</span>
-              </h6>
-            </Col>
-          </Row>
-          <Row>
-            <p>{ details.desc }</p>
-          </Row>
-          <Row>
-            <Button onClick={ () => this.props.addToOrder(this.props.index) } disabled={!isAvailable}>{ buttonText }</Button>
-          </Row>
-
+              </Col>
+            </Row>
+            <Row>
+              <p>{ details.desc }</p>
+            </Row>
+            <Row>
+              <Button onClick={ () => this.props.addToOrder(this.props.index) } disabled={!isAvailable}>{ buttonText }</Button>
+            </Row>
+          </Container>
         </ListGroupItem>
       </ListGroup>
 

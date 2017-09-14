@@ -59,7 +59,7 @@ class Store extends Component {
               </ul>
             </Col>
             <Col sm="4" className="order">
-              <Order />
+              <Order fishes={this.state.fishes} order={this.state.order}/>
             </Col>
             <Col sm="4" className="inventory">
               <Inventory addFish={this.addFish} loadSamples={this.loadSamples}/>
