@@ -14,7 +14,6 @@ import { Button } from 'reactstrap';
 
 class StorePicker extends Component {
   
-
   goToStore(event) {
     event.preventDefault();
     console.log('you changed the url');

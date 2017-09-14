@@ -1,0 +1,16 @@
+
+
+img {
+  width: 60px;
+  margin-right: 10px;
+}
+
+li {
+  list-style-type: none;
+}
+
+
+
+.fish-name {
+  text-align: right;
+}
