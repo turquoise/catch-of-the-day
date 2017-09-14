@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import AddFishForm from './AddFishForm';
-import { Button } from 'reactstrap';
+import { Button} from 'reactstrap';
 
 class Inventory extends Component {
   render() {
