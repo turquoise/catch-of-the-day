@@ -17,6 +17,7 @@ class Store extends Component {
     this.addFish = this.addFish.bind(this);
     this.loadSamples = this.loadSamples.bind(this);
     this.addToOrder = this.addToOrder.bind(this);
+    this.updateFish = this.updateFish.bind(this);
     // initial state
     this.state = {
       fishes: {},
@@ -69,6 +70,12 @@ class Store extends Component {
     this.setState({ fishes: fishes})
   }
 
+  updateFish(key, updatedFish) {
+    const fishes = {...this.state.fishes};
+    fishes[key] = updatedFish;
+    this.setState({ fishes });
+  }
+
   loadSamples() {
     this.setState({
       fishes: sampleFishes
@@ -91,15 +98,23 @@ class Store extends Component {
               <ul className="list-of-fishes">
                 {
                   Object.keys(this.state.fishes)
-                    .map( fish => <Fish key={fish} index={fish} details={this.state.fishes[fish]} addToOrder={this.addToOrder}/> )
+                    .map( fish =>
+                      <Fish key={fish}
+                            index={fish}
+                            details={this.state.fishes[fish]}
+                            addToOrder={this.addToOrder}/> )
                 }
               </ul>
             </Col>
             <Col sm="4" className="order">
-              <Order fishes={this.state.fishes} order={this.state.order}/>
+              <Order fishes={this.state.fishes}
+                    order={this.state.order}/>
             </Col>
             <Col sm="4" className="inventory">
-              <Inventory addFish={this.addFish} loadSamples={this.loadSamples}/>
+              <Inventory addFish={this.addFish}
+                        loadSamples={this.loadSamples}
+                        fishes={this.state.fishes}
+                        updateFish={this.updateFish}/>
             </Col>
           </Row>
         </Container>
