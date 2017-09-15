@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
 //import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Container, Row, Col } from 'reactstrap';
-
+import { PropTypes } from 'prop-types';
 import './Store.css';
 import Header from './Header';
 import Order from './Order';
 import Inventory from './Inventory';
 import sampleFishes from '../sample-fishes';
 import Fish from './Fish';
+import base from '../base';
 
 class Store extends Component {
   constructor() {
     super();
+
     this.addFish = this.addFish.bind(this);
     this.loadSamples = this.loadSamples.bind(this);
     this.addToOrder = this.addToOrder.bind(this);
@@ -20,6 +22,41 @@ class Store extends Component {
       fishes: {},
       order: {}
     };
+  }
+
+
+  componentWillMount() {
+    // this runs before the app is rendered.
+    const path = this.context.router.history.location.pathname;
+    const userId = path.slice(7);
+
+    this.ref = base.syncState(`${userId}/fishes`,
+      {
+        context: this,
+        state: 'fishes'
+      }
+    );
+    // check if there is anything in localstorage.
+    const localStorageRef = localStorage.getItem(`order-${userId}`);
+    if (localStorageRef) {
+      this.setState({
+        order: JSON.parse(localStorageRef)
+      });
+    }
+
+  }
+
+  componentWillUnmount() {
+    base.removeBinding(this.ref);
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    //console.log({nextProps, nextState});
+    const path = this.context.router.history.location.pathname;
+    const userId = path.slice(7);
+    //console.log(userId);
+    localStorage.setItem(`order-${userId}`, JSON.stringify(nextState.order));
+
   }
 
   addFish(fish) {
@@ -70,5 +107,9 @@ class Store extends Component {
     );
   }
 }
+
+Store.contextTypes = {
+  router: PropTypes.object
+};
 
 export default Store;

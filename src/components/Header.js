@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'reactstrap';
-
+import './Header.css';
 import anchor from '../css/images/anchor.svg';
 
 const Header = (props) => {
@@ -15,7 +15,7 @@ const Header = (props) => {
               <h2>Catch of the Day</h2>
             </Col>
           </Row>
-          <Row>
+          <Row >
             <h6 className="tagline">{ props.tagline }</h6>
           </Row>
         </Container>
