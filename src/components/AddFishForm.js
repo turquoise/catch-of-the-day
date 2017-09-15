@@ -21,7 +21,9 @@ class AddFishForm extends Component {
       <div>
         <ListGroup>
           <ListGroupItem>
-            <Form ref={ (input) => this.fishForm = input} className="fish-edit" onSubmit={ (e) => {this.createFish(e)}}>
+            <Form ref={ (input) => this.fishForm = input}
+                  className="fish-edit"
+                  onSubmit={ (e) => {this.createFish(e)}}>
                   <FormGroup>
                       <Input ref={ (input) => this.name = input}
                             type="text"
@@ -40,7 +42,10 @@ class AddFishForm extends Component {
                       </Input>
                     </Col>
                     <Col xs="6">
-                      <Input type="select" ref={ (input) => this.status = input} name="select" id="select">
+                      <Input type="select"
+                            ref={ (input) => this.status = input}
+                            name="select"
+                            id="select">
                         <option value="available">Fresh</option>
                         <option value="unavailable">Sold Out!</option>
                       </Input>

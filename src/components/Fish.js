@@ -27,7 +27,9 @@ class Fish extends Component {
               <p>{ details.desc }</p>
             </Row>
             <Row>
-              <Button onClick={ () => this.props.addToOrder(this.props.index) } disabled={!isAvailable}>{ buttonText }</Button>
+              <Button onClick={ () => this.props.addToOrder(this.props.index) }
+                      disabled={!isAvailable}>{ buttonText }
+              </Button>
             </Row>
           </Container>
         </ListGroupItem>

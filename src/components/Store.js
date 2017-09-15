@@ -15,6 +15,7 @@ class Store extends Component {
     super();
 
     this.addFish = this.addFish.bind(this);
+    this.removeFish = this.removeFish.bind(this);
     this.loadSamples = this.loadSamples.bind(this);
     this.addToOrder = this.addToOrder.bind(this);
     this.updateFish = this.updateFish.bind(this);
@@ -64,16 +65,24 @@ class Store extends Component {
     // update state
     const fishes = { ...this.state.fishes};
     // add in our new fish
-    const timestamp = Date.now();
-    fishes[`fish-${timestamp}`] = fish;
+    //const timestamp = Date.now();
+    //fishes[`fish-${timestamp}`] = fish;
     // set state
-    this.setState({ fishes: fishes})
+    //this.setState({ fishes: fishes})
+
   }
 
   updateFish(key, updatedFish) {
     const fishes = {...this.state.fishes};
     fishes[key] = updatedFish;
-    this.setState({ fishes });
+    this.setState({ fishes: fishes });
+  }
+
+  removeFish(key) {
+    console.log(key);
+    const fishes = Object.assign( {}, this.state.fishes);
+    fishes[key] = null;
+    //this.setState({ fishes: fishes })
   }
 
   loadSamples() {
@@ -114,7 +123,8 @@ class Store extends Component {
               <Inventory addFish={this.addFish}
                         loadSamples={this.loadSamples}
                         fishes={this.state.fishes}
-                        updateFish={this.updateFish}/>
+                        updateFish={this.updateFish}
+                        removeFish={this.removeFish}/>
             </Col>
           </Row>
         </Container>

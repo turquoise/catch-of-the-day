@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+//import fire from '../fire';
 // import {
 //   BrowserRouter as Router,
 //   Route,
@@ -13,14 +14,14 @@ import { Button } from 'reactstrap';
 //import Store from './Store';
 
 class StorePicker extends Component {
-  
+
   goToStore(event) {
     event.preventDefault();
-    console.log('you changed the url');
-    console.log('this.StoreInput ', this.storeInput);
+    //console.log('you changed the url');
+    //console.log('this.StoreInput ', this.storeInput);
     const userName = this.storeInput.value;
     const path = `/store/${userName}`;
-    console.log('path ', path);
+    //console.log('path ', path);
 
     this.context.router.history.push(path);
   }

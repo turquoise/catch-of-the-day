@@ -58,7 +58,6 @@ class Inventory extends Component {
                       </Input>
                     </Col>
                   </FormGroup>
-
                 <FormGroup>
                   <Input type="textarea"
                         name="description"
@@ -69,7 +68,6 @@ class Inventory extends Component {
                         onChange={ (e) => this.handleChange(e, key) }>
                   </Input>
                 </FormGroup>
-
                 <FormGroup>
                   <Input ref={ (input) => this.image = input}
                         type="text"
@@ -80,9 +78,16 @@ class Inventory extends Component {
                         onChange={ (e) => this.handleChange(e, key) }>
                   </Input>
                 </FormGroup>
-
-              <Button block type="submit">+ Add Item</Button>
-              <br/>
+                <FormGroup row>
+                  <Col xs="6">
+                    <Button color="success" type="submit">+ Add Item</Button>
+                  </Col>
+                  <Col xs="6">
+                    <Button color="warning" onClick={ (key) => this.props.removeFish(key)} >
+                      Remove Fish
+                    </Button>
+                  </Col>
+                </FormGroup>
             </Form>
 
           </ListGroupItem>
